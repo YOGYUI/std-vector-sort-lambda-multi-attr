@@ -4,12 +4,12 @@
         {
             "label": "windows-g++-build",
             "type": "shell",
-            "command": "g++",
+            "command": "C:\\msys64\\mingw64\\bin\\g++",
             "args": [
                 "-g",
-                "${fileDirname}\\main.cpp",
+                "${workspaceFolder}\\src\\main.cpp",
                 "-o",
-                "${fileDirname}\\main.exe"
+                "${workspaceFolder}\\out\\main.exe"
             ],
             "problemMatcher": [
                 "$gcc"
@@ -19,12 +19,12 @@
         {
             "label": "windows-gcc-build",
             "type": "shell",
-            "command": "gcc",
+            "command": "C:\\msys64\\mingw64\\bin\\gcc",
             "args": [
                 "-g",
-                "${fileDirname}\\main.cpp",
+                "${workspaceFolder}\\src\\main.cpp",
                 "-o",
-                "${fileDirname}\\main.exe"
+                "${workspaceFolder}\\out\\main.exe"
             ],
             "problemMatcher": [
                 "$gcc"
@@ -33,12 +33,8 @@
         },
         {
             "label": "windows-execute",
-            "command": "cmd",
-            "group": "test",
-            "args": [
-                "/C",
-                "${fileDirname}\\main.exe"
-            ]
+            "command": "${workspaceFolder}\\out\\main.exe",
+            "group": "test"
         },
         {
             "label": "linux-g++-build",

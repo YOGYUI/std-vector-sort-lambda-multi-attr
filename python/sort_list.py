@@ -25,6 +25,7 @@ if __name__ == '__main__':
     ]
     print('before sorting')
     print('\n'.join([str(x) for x in students]))
+    
     students_sorted = sorted(students, key = lambda x: (x.class_no, x.number))
     print('after sorting')
     print('\n'.join([str(x) for x in students_sorted]))

@@ -1,4 +1,4 @@
-#include <string>
+#include <cstring>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -11,10 +11,24 @@ public:
         m_class_no = class_no;
         m_number = number;
     }
+
     ~Student() {}
+
     void print() {
-        std::cout << "Name: " << ", Class: " << m_class_no << ", Number: " << m_number << "\n";
+        std::cout << "Name: " << m_name;
+        for (int i = 0; i < 10 - strlen(m_name); i++)
+            std::cout << " ";
+        std::cout << ", Class: " << m_class_no << ", Number: " << m_number << "\n";
     }
+
+    int GetClassNo() {
+        return this->m_class_no;
+    }
+
+    int GetNumber() {
+        return this->m_number;
+    }
+
 private:
     char m_name[32];
     int m_class_no;
@@ -39,7 +53,20 @@ int main(int argc, char *argv[])
         s.print();
     }
 
+    // ascending
+    auto rule_ascending = [](Student st1, Student st2) -> bool {
+        if (st1.GetClassNo() != st2.GetClassNo()) {
+            return st1.GetClassNo() < st2.GetClassNo();
+        } else {
+            return st1.GetNumber() < st2.GetNumber();
+        }
+    };
+    std::sort(students.begin(), students.end(), rule_ascending);
+
     std::cout << "after sorting\n";
+    for (auto & s : students) {
+        s.print();
+    }
 
     return 0;
 }

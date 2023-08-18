@@ -63,6 +63,29 @@ int main(int argc, char *argv[])
     };
     std::sort(students.begin(), students.end(), rule_ascending);
 
+    /*
+    // descending
+    auto rule_descending = [](Student st1, Student st2) -> bool {
+        if (st1.GetClassNo() != st2.GetClassNo()) {
+            return st1.GetClassNo() > st2.GetClassNo();
+        } else {
+            return st1.GetNumber() > st2.GetNumber();
+        }
+    };
+    std::sort(students.begin(), students.end(), rule_descending);
+    */
+
+    /*
+    auto rule_custom = [](Student st1, Student st2) -> bool {
+        if (st1.GetClassNo() != st2.GetClassNo()) {
+            return st1.GetClassNo() < st2.GetClassNo();
+        } else {
+            return st1.GetNumber() > st2.GetNumber();
+        }
+    };
+    std::sort(students.begin(), students.end(), rule_custom);
+    */
+
     std::cout << "after sorting\n";
     for (auto & s : students) {
         s.print();
